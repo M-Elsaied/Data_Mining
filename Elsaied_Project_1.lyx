@@ -1,0 +1,3629 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Data Mining - EMIS 7331 Project 1 
+\end_layout
+
+\begin_layout Author
+Mohamed Elsaied
+\end_layout
+
+\begin_layout Date
+09/24/2017
+\end_layout
+
+\begin_layout Abstract
+This Project discusses how federal, non-military employment was impacted
+ by the transition from President George Bush to President Barack Obama
+ to learn about the impact of the difference in policy between the two administr
+ations on the federal government.
+ In the First section the Project will look at the campaign promises from
+ each and then look at the actual policies applied by each and the Key events
+ to see if that affected the Federal employment strategy.After that the project
+ explains the data set provided, what it means, how was it cleaned and what
+ are the assumptions and Imputations.
+ In the Third section some agencies are selected for analysis and visualization
+ using appropiate methods.
+ The Fourth and the last section has the conclusion of the project, and
+ discussed the limitation to work, and how can this report taken for further
+ research 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newpage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Abstract
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tableofcontents
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+listoffigures
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+listoftables
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+newpage  
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Introduction:
+\end_layout
+
+\begin_layout Standard
+On May 24, 2017.
+ BuzzFeed news shared an enormous dataset — one that sheds light on four
+ decades of the United States’ federal payroll.
+ The dataset contains hundreds of millions of rows and stretches all the
+ way back to 1973.
+ It provides salary, title, and demographic details about millions of U.S.
+ government employees, as well as their migrations into, out of, and through
+ the federal bureaucracy.
+ In many cases, the data also contains employees’ names.
+\end_layout
+
+\begin_layout Standard
+They obtained the information — more than 30 gigabytes of it — from the
+ U.S.
+ Office of Personnel Management, via the Freedom of Information Act (FOIA).
+ 
+\end_layout
+
+\begin_layout Subsection
+Buisness Understanding 
+\end_layout
+
+\begin_layout Standard
+Understanding the Federal Budget process will help us understanding how
+ the federal, non-military employment is affected by different administrations.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Step one
+\series default
+ of the process is The President’s budget request: The process starts when
+ the president submits a detailed budget request for the coming fiscal year.
+ First, it recommends the congress for the overall federal fiscal policy.
+ The request has three components (1) how much money should be spent on
+ public purposes.
+ (2) How much should it take as tax revenue (3) how much of a deficit the
+ federal government should run.
+ Second, the president budget layout his relative priorities for federal
+ programs (how much should be spent on each agency) Third, the president’s
+ budget signals to congress his recommendations for spending and tax policy
+ changes.
+ The budget comprises different types of programs: (1) annually appropriated
+ programs (known as “Discretionary” and it makes about one-third of all
+ federal spending.
+ (2) Taxes, “mandatory” or “entitlement” programs, and interest.
+ (3) Recommendations for mandatory programs (discusses the changes to eligibilit
+y criteria and levels of individual benefits) (4) changes to tax code.
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-5"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Step two
+\series default
+ the congressional budget resolution: Where the congress holds hearings
+ to question administration officials about their requests and then develop
+ its own budget plan.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-6"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Step Three
+\series default
+ Enacting Budget Legislation: Following the adaption of the budget resolution,
+ Congress considers the annual appropriations bills that are needed to fund
+ discretionary programs in the coming fiscal year and legislation to enact
+ changes to mandatory spending or revenue levels as specified in the budget
+ resolution.
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-7"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So from understanding the Process we know that the President is not the
+ final only variable, the congress approval is also in the process, but
+ definetly the President policy affects the overall outcome of the Federal
+ budget, which affects the Fedral Employment.
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-8"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Candidates History
+\end_layout
+
+\begin_layout Subsubsection
+George W.
+ Bush
+\end_layout
+
+\begin_layout Standard
+George W.
+ Bush Was Born July 6, 1946 in New Haven, Connecticut.
+ He was raised in Midland and Houston, Texas.
+ His Grand Father was a U.S.
+ Senator from Connecticut.
+ His father, was Ronald Regan’s vice president from 1981 to 1989 and the
+ 41th U.S.
+ President from 1989 to 1993.
+ He attended Yale University from 1964 to 1968, studying Arts with degree
+ in history.
+ He got his MBA degree from Harvard Business School.
+ In 1994 Bush declared his candidacy for Texas gubernatorial election.
+ And he became the Governor of Texas in 1995.
+ His major achievement was using the budget surplus to push through Texas's
+ largest tax-cut, $2 billion.
+ He extended government funding for organizations providing education of
+ the dangers of alcohol and drug use and abuse, and helping to reduce domestic
+ violence.
+ Critics contended that during his tenure, Texas ranked near the bottom
+ in environmental evaluations.
+ Supporters pointed to his efforts to raise the salaries of teachers and
+ improve educational test scores.
+ In 1998, Bush won re-election with 69% to be the first Governor in Texas
+ history to be elected to two consecutive four-year terms.
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-4"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Presidential Campaign
+\end_layout
+
+\begin_layout Standard
+The 2000 presidential campaign was officially launched on June 14, 1999.
+ Following the Clinton Presidancy, the Bush campaign made extensive use
+ of the compassionate conservatism concept.
+ Bush critisized the Clinton-Gore admistration for being too interventionist,
+ he promised a humble foreign policy with no nation building.
+ Bush promised tax breaks for all, sometimes using the slogan 
+\begin_inset Quotes eld
+\end_inset
+
+whoever pays taxes gets a tax break
+\begin_inset Quotes erd
+\end_inset
+
+.
+ He proposed an act that increases funding for schools , while requiring
+ greater accountability for results.
+ he named the act 
+\begin_inset Quotes eld
+\end_inset
+
+No Child Left Behind
+\begin_inset Quotes erd
+\end_inset
+
+.
+ For Energy: The Bush campaign supported a comprehensive energy reform bill
+ which includes initiatives for energy conserving technologies as well as
+ decreasing the foreign dependence on oil through increased domestic production
+ and the use of non-fossil fuel based energy production methods.[14]
+\end_layout
+
+\begin_layout Subsubsection*
+Presidency
+\end_layout
+
+\begin_layout Standard
+After his won, in Janurary 2001, Bush bans providing aid to organizations
+ that perfoem abortions.
+ In June 2001 Bush signs $1.35 Trillion tax cut law.
+ He also outlines a new policy on STEM cell research.
+ On September 11 United States was attcked by a terrorist attack.
+ Jaurary 2002 Bush a law on education reform bill 
+\begin_inset Quotes eld
+\end_inset
+
+No Child Left Behind
+\begin_inset Quotes erd
+\end_inset
+
+.
+ May 2003 Bush sign 3rd largest tax cut in history .
+ August 2005 Hurricane C=Katrina hits the gulf coast .
+ October 2006, Bush approves 700 mile fence along US-Mexico border.[2]
+\end_layout
+
+\begin_layout Subsubsection
+Barack Obama
+\end_layout
+
+\begin_layout Standard
+Barack Obama Was born on August 4, 1961 in Honolulu, Hawaii.
+ He attended high school in Hawaii, after graduating he moved to Los Angeles
+ to attend Occidental College.
+ Later in 1981 he transferred to Columbia University where he majored in
+ political science with a specialty in international relations and in English
+ literature.
+ He entered Harvard Law School in 1988.
+ In 1991 he was a visiting law and Government fellow at the University of
+ Chicago Law School.
+ He was Illinois State Senator from 1997 to 2004.
+ And he became a U.S.
+ senator from Illinois from 2005 to 2008.
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-4"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Presidential Campaign
+\end_layout
+
+\begin_layout Standard
+The 2008 presidential campaign had a lot of promises starting with the Energy,
+ it Promised to end the dependance on oil from the middle east.
+ For Education it promised to invest in early childhood education.
+ Recruit an army of new teachers, and pay them higher salaries, and give
+ them more support.
+ And in exchange, we ask for higher standards and more accountability.
+ It promised to stop giving tax break to companie that ship jobs to overseas.
+ For healthcare it promised to lower the premiums if you have a health care.
+ if you don't you will be able to get some kind of coverage.[15]
+\end_layout
+
+\begin_layout Subsubsection*
+Presidency
+\end_layout
+
+\begin_layout Standard
+After he won, In February 2009, he pulled the restriction on how much money
+ could go to STEM research.
+ October 2009, Obama lifts a ban preventing people with HIV & AIDS from
+ entering the US.
+ Janurary 2010, Obama announces $900 million in grants for schools underperformi
+ng.
+ April 2010, Deepwater horizon oil explodes killing 11 people.
+ April 2010, Obama proposes NASA budget increase by $6 billion over the
+ next 5 years.
+ November 2010, Obama institutes a two year pay raise freeze for federal
+ employees.[1]
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newpage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Data set
+\end_layout
+
+\begin_layout Standard
+The Data provided by BuzzFeed 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-8"
+
+\end_inset
+
+ is in text file with column width.
+ Each year divided into 4 quarters.
+ So the files were broken and headers applied using the code given by Dr.
+ Hahsler
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-9"
+
+\end_inset
+
+.
+ Then a new Column was added to the data by reading the translation file
+ which matched the agency code with the agency number and was added to my
+ Data.
+ Then a code
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-10"
+
+\end_inset
+
+was used to clean and group the data.
+\end_layout
+
+\begin_layout Subsection
+Data History, Definition, & Explanation:
+\end_layout
+
+\begin_layout Standard
+The Data was obtained via the Freedon of Information Act (FOIA) Via Jeremy
+ Singer-Vine 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-7"
+
+\end_inset
+
+and it discusses the Payroll for the Federal government since 1974 till
+ 2016.
+ in our report we will be interested in the Bush and Obama adminstrations.The
+ dataset contains hundreds of millions of rows and stretches all the way
+ back to 1973.
+ It provides salary, title, and demographic details about millions of U.S.
+ government employees, as well as their migrations into, out of, and through
+ the federal bureaucracy.
+ In many cases, the data also contains employees’ names.One tracks the “status”
+ of every federal employee at the end of every fiscal quarter.
+ The other tracks entries and exits, known in bureaucratic lingo as “accessions”
+ and “separations.” (That data only goes back to 1982.) For each employee,
+ the “status” data includes the following information:Name, Agency, Subagency,
+ Location (only to the state/country level in recent data, but a more detailed
+ “duty station” before that), Occupation, Occupational category, Age (as
+ a range), Education level, and years since degree (as a range),Adjusted
+ basic pay, Pay plan and pay grade, Type of appointment (e.g., “career,” “nonperma
+nent,” “Schedule A,” etc.), Work schedule (e.g., full time, part-time seasonal,
+ etc.), Supervisory status.
+ Detailed definitions can be found in Table 1
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Attribtes definition
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="16" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top" width="9cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Attribute
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Description
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+PseudoID
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+A unique identifier number for each employee(Nominal Variable)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Name
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+The name of Employee if provided
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Date
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+The date od the Quarter(all Observations within the same quarter have the
+ same date)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Agency
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+The departments encoded as 6 character variable
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Station
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Actual Location in which the Employee worked in a 9 character variable
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Age
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Age groups of employees(Ordinal Variable)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Eduction
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Level of education achieved in a 2 digit number(Ordinal Variable)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+PayPlan
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+2 Character variable that repressents type of work the employee does
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Grade
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Used with PayPlan to determine employee basic pay
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+LOS
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Represents the length of service of an employee in years(ordinal Variable)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Category
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Represents the type of work an employee does
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Pay
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Annual pay of an employee(Ratio Variable)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+SupervisoryStatus
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Represents the level of leadership of an employee
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Appointment 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Represents if the position is permenant, not permenant
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Schedule
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Represets if the employee position is full time, part time, or seasonal
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Data Assumptions & Imputations:
+\end_layout
+
+\begin_layout Standard
+This section talks about the data set, and what assumptions was made to
+ missing value, and the Imputations to fix it
+\end_layout
+
+\begin_layout Subsubsection
+Data Assumptions:
+\end_layout
+
+\begin_layout Standard
+The Following shows the data assumptions that was done for the data set.
+ Though the data has more than 15 attributes, the following is the important
+ attributes that i want to focus on and clean.
+ Age, Education, Length Of Service, Pay, and Agency Name)
+\end_layout
+
+\begin_layout Standard
+1-For the Length of service, the data was given in range of years The average
+ of the range was taken as a value for the specific Length of service.
+\end_layout
+
+\begin_layout Standard
+2-For the Age, the data was given as age groups.
+ The average of the age group was taken as a value for the specific Age.
+\end_layout
+
+\begin_layout Standard
+3-For the Pay, all the values with less than $3500(less than 0.0004%) were
+ asumed to be ouliers and were taken out of the data set.
+\end_layout
+
+\begin_layout Standard
+4-Duplicate ID's with the same name, were assumed to be an upgrade or change
+ in the Agency.
+\end_layout
+
+\begin_layout Subsubsection
+Data Imputations:
+\end_layout
+
+\begin_layout Standard
+The following shows the data imputations that was done for the data set.
+ Many of the Variables had missing values (e.g.
+ * or **** or ######) so these values had to be changed to NA's so we can
+ see if we want to delete them or do some imputations.
+\end_layout
+
+\begin_layout Standard
+1-For all the attributes, all the missing values were replaced with NA.
+\end_layout
+
+\begin_layout Standard
+2-For the Pay, all NA's were replaced with median pay.
+\end_layout
+
+\begin_layout Standard
+3-For the Age, all NA's were replaced with the median age for the agency.
+\end_layout
+
+\begin_layout Section
+Data Analysis & Visualization
+\end_layout
+
+\begin_layout Standard
+After looking at the data and understanding the buisness, we wanted to look
+ and see if the employment of the federal government was affected with natural
+ disasters, for example 09/11 Attacks.
+ so the mean pay of the employee for each year and was plotted against the
+ years 2000 to 2014.
+ so if we look at
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Figure 1"
+
+\end_inset
+
+ the maximum mean pay($79,333) and the minimum mean pay($51266) over the
+ years.
+ we will find that it's exactly equal to 2% which is the inflation.
+ so the big picture looks consistent.
+ but if you look at the transition between 2002 & 2003 you will find that
+ the slope of the line has changed due to the 09/11 attacks.Mean, Median,
+ & Maximum Pay per year can be found in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Table 2"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Year
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Mean
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Median
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Maximum
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+2001
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+$51,266 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+$48,469 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+$200,000 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+2005
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+$63,014 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+$57,002 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+$250,000 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+2009
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+$73,605 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+$64,021 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+$393,000 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+2013
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+79,333
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+$72,722 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+$401,589 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Mean, Median, & Max Pay
+\begin_inset CommandInset label
+LatexCommand label
+name "Table 2"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename C:/Users/win8.1/Downloads/Average Pay over the years.JPG
+	lyxscale 50
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Mean Pay Salary 2000 - 2014
+\begin_inset CommandInset label
+LatexCommand label
+name "Figure 1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newpage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Agencies seleceted for Analysis & Visualization:
+\end_layout
+
+\begin_layout Standard
+The time frame that we will be comparing in between different agencies is
+ 2001, 2005, 2009, and 2013.
+ After Comparing the differnces in policies between the 2 adminstrations,
+ it was obesrved that the main agencies that we would really see differnce
+ in Employments is (1) The department of Health and Human services(HHS).
+\end_layout
+
+\begin_layout Subsubsection
+Department of Health and Human services
+\end_layout
+
+\begin_layout Standard
+also known as the Health Department, is a cabinet-level department of the
+ U.S.
+ federal government with the goal of protecting the health of all Americans
+ and providing essential human services.
+ Its motto is "Improving the health, safety, and well-being of America".
+ Before the separate federal Department of Education was created in 1979,
+ it was called the Department of Health, Education, and Welfare (HEW).
+\end_layout
+
+\begin_layout Subsubsection*
+Number of Employees over the years
+\end_layout
+
+\begin_layout Standard
+The change in Number of employees over the years gives us an idea of how
+ the 2 different adminstrations prioritze this specific agency.
+ Looking at 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Figure 2"
+
+\end_inset
+
+We can see How the Employment Dramatically changed between the 2 adminstrations.
+ it's really noticable that Obama was really focusing on the HHS Department.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename D:/SMU/DATA MINING/Project1/Files/clean-data/Rplot01.png
+	width 9cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+HHS Employees over the years
+\begin_inset CommandInset label
+LatexCommand label
+name "Figure 2"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+HHS Education 
+\end_layout
+
+\begin_layout Standard
+As we saw in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Figure 2"
+
+\end_inset
+
+ the number of employeed in HHS increased dramatically in the Obama adminstratio
+n.
+ So it would be really helpful to look at the level of education of the
+ new employees and compare it with the Bush adminstration.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Figure 3"
+
+\end_inset
+
+ shows us that most of the people hired were Level 1(Middle School Education)
+ or Level 4(High School Education).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename D:/SMU/DATA MINING/Project1/Files/clean-data/Rplot02.png
+	lyxscale 75
+	width 9cm
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Level of Education
+\begin_inset CommandInset label
+LatexCommand label
+name "Figure 3"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newpage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+HHS Median Pay
+\end_layout
+
+\begin_layout Standard
+After looking at the Number of Employees and their Education we see that
+ the Median jumped from $55,153 in 2001 to $68,809 in 2014 which the differnce
+ is almost the inflation (2%) so in 2014 people were paid the same.
+ but the Median of Education dropped from 13 in 2001 to 6 in 2014.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Figure 4"
+
+\end_inset
+
+ Shows HHS Pay Distibution and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Figure 5"
+
+\end_inset
+
+ Shows the relation between Pay and Education.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Figure 6"
+
+\end_inset
+
+ Shows the Pay vs LOS.
+ Also the corelation(how much the dependent variable, the LOS & Education,
+ explains the independent variable, the Pay) between the Pay, Education,
+ & LOS can be found in Table 2.
+ we see that the relation between them is good in all years except 2005
+ for the HHS agency.
+\end_layout
+
+\begin_layout Standard
+HHS Employee concentration comparison between 2001 and 2013 can be found
+ in
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Figure 7"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Year
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Pay VS LOS
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Pay vs Education
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+2001
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.46
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.47
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+2005
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.35
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.35
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+2009
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.49
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.45
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+2013
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.43
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.39
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Corelation Between Pay, Education, & LOS
+\begin_inset CommandInset label
+LatexCommand label
+name "Table 3"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename D:/SMU/DATA MINING/Project1/Files/clean-data/Rplot03.png
+	width 9cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+HHS Pay 
+\begin_inset CommandInset label
+LatexCommand label
+name "Figure 4"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename D:/SMU/DATA MINING/Project1/Files/clean-data/Rplot04.png
+	width 9cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Pay VS Education
+\begin_inset CommandInset label
+LatexCommand label
+name "Figure 5"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename D:/SMU/DATA MINING/Project1/Files/clean-data/Rplot05.png
+	width 9cm
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Pay VS LOS
+\begin_inset CommandInset label
+LatexCommand label
+name "Figure 6"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename D:/SMU/DATA MINING/Project1/Files/clean-data/Untitled-5.jpg
+	width 9cm
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+HHS Employment 
+\begin_inset CommandInset label
+LatexCommand label
+name "Figure 7"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+NASA 
+\end_layout
+
+\begin_layout Standard
+The National Aeronautics and Space Administration is an independent agency
+ of the executive branch of the United States federal government responsible
+ for the civilian space program, as well as aeronautics and aerospace research.Pr
+esident Dwight D.
+ Eisenhower established NASA in 1958 with a distinctly civilian (rather
+ than military) orientation encouraging peaceful applications in space science.
+ The National Aeronautics and Space Act was passed on July 29, 1958, disestablis
+hing NASA's predecessor, the National Advisory Committee for Aeronautics
+ (NACA).
+ The new agency became operational on October 1, 1958.
+ Since that time, most US space exploration efforts have been led by NASA,
+ including the Apollo Moon landing missions, the Skylab space station, and
+ later the Space Shuttle.
+ Currently, NASA is supporting the International Space Station and is overseeing
+ the development of the Orion Multi-Purpose Crew Vehicle, the Space Launch
+ System and Commercial Crew vehicles.
+ The agency is also responsible for the Launch Services Program (LSP) which
+ provides oversight of launch operations and countdown management for unmanned
+ NASA launches.
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-1"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+NASA Employees over the years:
+\end_layout
+
+\begin_layout Standard
+In 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Table 4"
+
+\end_inset
+
+ we can see the Number of Emolyees changing over the years, the Obama adminstrat
+ion has employed more people.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Year
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Number Of Employees
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+2001
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+5154
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+2005
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+5583
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+2009
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+6369
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+2013
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+5955
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+NASA Employees over the years
+\begin_inset CommandInset label
+LatexCommand label
+name "Table 4"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+NASA Education
+\end_layout
+
+\begin_layout Standard
+In 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Figure 8"
+
+\end_inset
+
+we can observe as expected that most of the people has Education 13 which
+ is a Bachelor Degree and Education 17 which is a Master's Degree
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename D:/SMU/DATA MINING/Project1/Files/clean-data/Rplot08.png
+	width 9cm
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Nasa Education
+\begin_inset CommandInset label
+LatexCommand label
+name "Figure 8"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+NASA Median Pay
+\end_layout
+
+\begin_layout Standard
+After Looking at the number of Emolyees and the Pay we find that the Median
+ Pay jumped from $82,168 in 2001 to $129,758 in 2013 with an increase of
+ (4.5%) over the years.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Figure 9"
+
+\end_inset
+
+ Represents the Pay Distribution.In figure 10 shows the relation between
+ the Pay and the Education.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Figure 11"
+
+\end_inset
+
+ Shows the relation between Pay and LOS.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename D:/SMU/DATA MINING/Project1/Files/clean-data/Rplot09.png
+	width 9cm
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+NASA Pay Over The Years 
+\begin_inset CommandInset label
+LatexCommand label
+name "Figure 9"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename D:/SMU/DATA MINING/Project1/Files/clean-data/Rplot11.png
+	width 9cm
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Pay VS Education
+\begin_inset CommandInset label
+LatexCommand label
+name "Figure 10"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename D:/SMU/DATA MINING/Project1/Files/clean-data/Rplot13.png
+	width 9cm
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Pay VS LOS
+\begin_inset CommandInset label
+LatexCommand label
+name "Figure 11"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newpage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Limitation to work and future research
+\end_layout
+
+\begin_layout Standard
+In this report the search was only limited to 2 angencies HHS & NASA due
+ to lack of time, so further look into Agencies like Health and Urbam Developmeb
+t, IRS, Homeland Security, Transportation, Education, and Energy is recommended.
+ Also the data definition the the Fedscope document mentioned that there
+ is information about the ethnicity of the Employees but unfortunetly we
+ couldn't find it.
+ so it's recommended to look at the common Last names to see the percentage
+ of Hispanic, Black, and minorities to see the perecentage differnce between
+ two adminstrations.
+\end_layout
+
+\begin_layout Section
+Conclusion
+\end_layout
+
+\begin_layout Standard
+This report started with introduction discussing the buisness and the 2
+ key factors in the buisness(Bush & Obama) going from their history, to
+ the presidential campaign policies to the actual presidency.
+ After that the data provided was discussed, what does it mean, how to clean
+ it, and how to use it for further analysis.
+ all the data assumptions and permutation was discussed as well.
+ After that Agencies of HHS & NASA were analyzed using different graphical
+ and statistical methods.The most important findings was that there was change
+ between the 2 adminstrations and it can be seen clearely in the HHS & NASA
+ Department.
+ at the end the limitation and further research to work was discussed
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newpage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-1"
+
+\end_inset
+
+Barack Obama: Key Events
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{https://millercenter.org/president/barack-obama/key-events}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-2"
+
+\end_inset
+
+George W.
+ Bush: Key Events
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{https://millercenter.org/president/george-h-w-bush/key-events}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-4"
+
+\end_inset
+
+Barack Obama: Early Life
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{https://en.wikipedia.org/wiki/Barack_Obama}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-5"
+
+\end_inset
+
+George W.
+ Bush: Early Life
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{https://en.wikipedia.org/wiki/George_W._Bush}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-4"
+
+\end_inset
+
+United States Budget Process
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt(Obama, President Barack.
+ "State of the Union addreSS JanUary 28, 2014." (2014).)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-5"
+
+\end_inset
+
+BudgetResolution-USSenate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt(Saturno, James.
+ "The congressional budget process: a brief overview." Congressional Research
+ Service, Library of Congress, 2000.)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-6"
+
+\end_inset
+
+Enactment of a Law 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt(Crain, W.
+ Mark, and James C.
+ Miller III.
+ "Budget process and spending growth." Wm.
+ & Mary L.
+ Rev.
+ 31 (1989): 1021.)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-7"
+
+\end_inset
+
+BuzzFeed-FederalPayRecord
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt(https://www.buzzfeed.com/jsvine/sharing-hundreds-of-millions-of-federal-pay
+roll-records?utm_term=.fbQxPYGG6N#.rk0PblJJDX)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-8"
+
+\end_inset
+
+Federal Pay Record 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt(https://archive.org/details/opm-federal-employment-data)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-9"
+
+\end_inset
+
+Dr.
+ Hahsler Code
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{http://michael.hahsler.net/SMU/EMIS7331/data/federal_employment/project1.htm
+l}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-10"
+
+\end_inset
+
+Clean File 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{https://github.com/jakecarlson1/data-mining-projects/blob/master/project-1
+/project1.R}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-11"
+
+\end_inset
+
+Department of Health and Human services: History
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{https://en.wikipedia.org/wiki/United_States_Department_of_Health_and_Human_
+Services}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-1"
+
+\end_inset
+
+Nasa: History
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{https://en.wikipedia.org/wiki/NASA}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-2"
+
+\end_inset
+
+Bush - Presidential Campaign: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{https://en.wikipedia.org/wiki/George_W._Bush_presidential_campaign,_2000}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-3"
+
+\end_inset
+
+ObamaPresidentoalCampaign
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texttt{http://www.huffingtonpost.com/entry/a-look-at-how-obama-is-keeping-up-with-
+his-2008-promises_us_55e09a0de4b0b7a96338ca2f}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
